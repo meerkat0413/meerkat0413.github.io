@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+
+
+
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>Meerkat&#39;s Note</title>
+        <link>https://meerkat.github.io/</link>
+        <description>MemE is a powerful and highly customizable GoHugo theme for personal blogs.</description>
+        <generator>Hugo 0.71.1 https://gohugo.io/</generator>
+        
+            <language>en</language>
+        
+        
+            <managingEditor>z719041@gmail.com (meerkat)</managingEditor>
+        
+        
+            <webMaster>z719041@gmail.com (meerkat)</webMaster>
+        
+        
+            <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+        
+        <lastBuildDate>Fri, 29 May 2020 14:19:28 &#43;0800</lastBuildDate>
+        
+            <atom:link rel="self" type="application/rss&#43;xml" href="https://meerkat.github.io/rss.xml" />
+        
+        
+            <item>
+                <title>My_first_article</title>
+                <link>https://meerkat.github.io/posts/my_first_article/</link>
+                <guid isPermaLink="true">https://meerkat.github.io/posts/my_first_article/</guid>
+                <pubDate>Thu, 28 May 2020 15:11:31 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                
+                    <description></description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat.github.io/tags/hugo/">hugo</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+    </channel>
+</rss>
