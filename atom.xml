@@ -4,13 +4,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title type="text">Meerkat&#39;s Note</title>
     <subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle>
-    <updated>2020-05-29T14:19:28&#43;08:00</updated>
-    <id>https://meerkat.github.io/</id>
-    <link rel="alternate" type="text/html" href="https://meerkat.github.io/" />
-    <link rel="self" type="application/atom&#43;xml" href="https://meerkat.github.io/atom.xml" />
+    <updated>2020-05-29T14:25:31&#43;08:00</updated>
+    <id>https://meerkat0413.github.io/</id>
+    <link rel="alternate" type="text/html" href="https://meerkat0413.github.io/" />
+    <link rel="self" type="application/atom&#43;xml" href="https://meerkat0413.github.io/atom.xml" />
     <author>
             <name>meerkat</name>
-            <uri>https://meerkat.github.io/</uri>
+            <uri>https://meerkat0413.github.io/</uri>
             
                 <email>z719041@gmail.com</email>
             </author>
@@ -18,8 +18,8 @@
     <generator uri="https://gohugo.io/" version="0.71.1">Hugo</generator>
         <entry>
             <title type="text">My_first_article</title>
-            <link rel="alternate" type="text/html" href="https://meerkat.github.io/posts/my_first_article/" />
-            <id>https://meerkat.github.io/posts/my_first_article/</id>
+            <link rel="alternate" type="text/html" href="https://meerkat0413.github.io/posts/my_first_article/" />
+            <id>https://meerkat0413.github.io/posts/my_first_article/</id>
             <updated>2020-05-28T15:12:37&#43;08:00</updated>
             <published>2020-05-28T15:11:31&#43;08:00</published>
             <author>
@@ -41,7 +41,7 @@
                             
                             
                             
-                                <category scheme="https://meerkat.github.io/categories/note/" term="note" label="note" />
+                                <category scheme="https://meerkat0413.github.io/categories/note/" term="note" label="note" />
                             
                         
                     
@@ -51,7 +51,7 @@
                             
                             
                             
-                                <category scheme="https://meerkat.github.io/tags/hugo/" term="hugo" label="hugo" />
+                                <category scheme="https://meerkat0413.github.io/tags/hugo/" term="hugo" label="hugo" />
                             
                         
                     
