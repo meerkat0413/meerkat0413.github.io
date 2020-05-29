@@ -23,13 +23,13 @@
         
             <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
         
-        <lastBuildDate>Fri, 29 May 2020 14:25:31 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 29 May 2020 16:18:10 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://meerkat0413.github.io/rss.xml" />
         
         
             <item>
-                <title>My_first_article</title>
+                <title>vagrant 筆記</title>
                 <link>https://meerkat0413.github.io/posts/my_first_article/</link>
                 <guid isPermaLink="true">https://meerkat0413.github.io/posts/my_first_article/</guid>
                 <pubDate>Thu, 28 May 2020 15:11:31 &#43;0800</pubDate>
@@ -38,7 +38,24 @@
                 
                 <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
                 
-                    <description></description>
+                    <description>&lt;h2 id=&#34;permission-denied-publickey-because-of-sync&#34;&gt;Permission denied (publickey) because of sync&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;由於synced_folder錯誤，導致無法正常登入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;ex:
+config.vm.synced_folder &#39;.&#39;, &#39;/home/vagrant/&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;因為configure會覆蓋vm上的主目錄並破壞vm上的.ssh設置，因此改為&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;config.vm.synced_folder &#39;.&#39;, &#39;/home/vagrant/foo
+foo為空目錄
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;how-to-assign-unique-ssh-port&#34;&gt;How to assign unique ssh port&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;config.vm.network :forwarded_port, guest: 22, host: 3200, id: &#39;ssh&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;reference&#34;&gt;reference&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/pastleo/ab1255846b5335407105&#34;&gt;https://gist.github.com/pastleo/ab1255846b5335407105&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@ganpat.bit/how-to-modify-vagrant-vms-default-ssh-port-d3e996d07be2&#34;&gt;https://medium.com/@ganpat.bit/how-to-modify-vagrant-vms-default-ssh-port-d3e996d07be2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;tags-vagrant&#34;&gt;tags: &lt;code&gt;vagrant&lt;/code&gt;&lt;/h6&gt;
+</description>
                 
                 
                 
@@ -60,7 +77,65 @@
                                 
                                 
                                 
-                                    <category domain="https://meerkat0413.github.io/tags/hugo/">hugo</category>
+                                    <category domain="https://meerkat0413.github.io/tags/vagrant/">vagrant</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>vagrant 筆記</title>
+                <link>https://meerkat0413.github.io/posts/vagrant_note/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/vagrant_note/</guid>
+                <pubDate>Thu, 28 May 2020 15:11:31 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                <copyright>[CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en)</copyright>
+                
+                    <description>&lt;h1 id=&#34;vagrant-筆記&#34;&gt;vagrant 筆記&lt;/h1&gt;
+&lt;h2 id=&#34;permission-denied-publickey-because-of-sync&#34;&gt;Permission denied (publickey) because of sync&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;由於synced_folder錯誤，導致無法正常登入&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;ex:
+config.vm.synced_folder &#39;.&#39;, &#39;/home/vagrant/&#39;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;因為configure會覆蓋vm上的主目錄並破壞vm上的.ssh設置，因此改為&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;config.vm.synced_folder &#39;.&#39;, &#39;/home/vagrant/foo
+foo為空目錄
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;how-to-assign-unique-ssh-port&#34;&gt;How to assign unique ssh port&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;config.vm.network :forwarded_port, guest: 22, host: 3200, id: &#39;ssh&#39;&lt;/code&gt;&lt;/p&gt;
+&lt;h5 id=&#34;reference&#34;&gt;reference&lt;/h5&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/pastleo/ab1255846b5335407105&#34;&gt;https://gist.github.com/pastleo/ab1255846b5335407105&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@ganpat.bit/how-to-modify-vagrant-vms-default-ssh-port-d3e996d07be2&#34;&gt;https://medium.com/@ganpat.bit/how-to-modify-vagrant-vms-default-ssh-port-d3e996d07be2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;tags-vagrant&#34;&gt;tags: &lt;code&gt;vagrant&lt;/code&gt;&lt;/h6&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/vagrant/">vagrant</category>
                                 
                             
                         
