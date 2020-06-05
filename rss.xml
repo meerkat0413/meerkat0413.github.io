@@ -21,10 +21,543 @@
             <webMaster>z719041@gmail.com (meerkat)</webMaster>
         
         
-        <lastBuildDate>Fri, 29 May 2020 16:46:50 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 05 Jun 2020 15:52:19 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://meerkat0413.github.io/rss.xml" />
         
+        
+            <item>
+                <title>git note</title>
+                <link>https://meerkat0413.github.io/posts/git_note/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/git_note/</guid>
+                <pubDate>Fri, 05 Jun 2020 15:01:19 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;h1 id=&#34;git&#34;&gt;git&lt;/h1&gt;
+&lt;h2 id=&#34;git-從無到有&#34;&gt;git 從無到有&lt;/h2&gt;
+&lt;h3 id=&#34;git-remote-repository&#34;&gt;git remote repository&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;在git server 上新增資料夾
+&lt;code&gt;mkdir /home/itri/git/www.git&lt;/code&gt;
+&lt;code&gt;git init --bare&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;git-local-repository&#34;&gt;git local repository&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;在新增成git repository
+&lt;code&gt;git init&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;撰寫ignore檔
+&lt;code&gt;vi .gitignore&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;first commit
+&lt;code&gt;git add .&lt;/code&gt;
+&lt;code&gt;git commit -m &#39;first import&#39;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;同步remote端repository
+&lt;code&gt;git remote add origin itri@10.101.129.43:/home/itri/git/www.git&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;push
+&lt;code&gt;git push origin master&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;git-merge&#34;&gt;git merge&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;git add xxxxx&lt;/li&gt;
+&lt;li&gt;git commit -m &amp;ldquo;&amp;hellip;&amp;rdquo; [branch1]&lt;/li&gt;
+&lt;li&gt;git push origin [branch1]&lt;/li&gt;
+&lt;li&gt;git pull origin dev&lt;/li&gt;
+&lt;li&gt;fix conflict&lt;/li&gt;
+&lt;li&gt;git commit -am &amp;ldquo;fix conflict&amp;rdquo;&lt;/li&gt;
+&lt;li&gt;git checkout dev&lt;/li&gt;
+&lt;li&gt;git merge [branch1]&lt;/li&gt;
+&lt;li&gt;git -d [branch1]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;git-pull-remote-branch&#34;&gt;git pull remote branch&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;git fetch origin&lt;/li&gt;
+&lt;li&gt;git checkout &amp;ndash;track origin/&amp;lt;remote_branch_name&amp;gt;(new local branch and  track the remote branch)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;doesnt-have-enough-permissionobject-的概念&#34;&gt;doesn’t have enough permission(object 的概念)&lt;/h2&gt;
+&lt;p&gt;可參考解說
+&lt;a href=&#34;https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/06.md&#34;&gt;https://github.com/doggy8088/Learn-Git-in-30-days/blob/master/zh-tw/06.md&lt;/a&gt;
+&lt;img src=&#34;https://i.imgur.com/GgSzCIM.jpg&#34; alt=&#34;&#34;&gt;
+此 git push錯誤表示，它沒有足夠的權限增加新的object到當下repository的objects目錄下，因此到.git/object中&lt;code&gt;ls -al&lt;/code&gt;就會看到git的objects文件夾下的某些目錄由其他人擁有&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;$ ls -l objects
+drwxr-xr-x 2 tom  git 4096 Oct  8  2016 01
+drwxr-xr-x 2 tom  git 4096 Oct  8  2016 02
+drwxr-xr-x 2 amy amy 4096 Oct  8  2016 03
+drwxr-xr-x 2 amy amy 4096 May  1  2017 04
+drwxr-xr-x 2 tom  git 4096 May  1  2017 05
+drwxr-xr-x 2 tom  git 4096 May  6  2017 06
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;set-the-appropriate-permissions-on-objects-directory&#34;&gt;Set the Appropriate Permissions on Objects Directory&lt;/h3&gt;
+&lt;p&gt;為解決此問題，要確保該用戶和組具有對該目錄的讀寫權限&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;cd /your/git/repo
+
+chgrp -R git objects
+
+chmod -R g+rws objects
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;確保所有需要訪問git的用戶都屬於git組。將上述chgrp命令中的“ git”更改為所有開發人員所屬的組。&lt;/li&gt;
+&lt;li&gt;“ g + rws”中的“ s”選項用於設置對象文件夾中的setuid位。這將確保在objects文件夾下創建的任何新目錄都將成為git group擁有的objects文件夾中的組名。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;share-the-git-repository-with-a-group&#34;&gt;Share the Git Repository with a Group&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;即使執行了上述操作之後，相同的問題仍可能再次出現，並且只要出現問題，都可能必須執行上述的chgrp和chmod。&lt;/li&gt;
+&lt;li&gt;在這種情況下，未將git存儲庫（例如：myproj）設置為組的共享repositor，它可能只是一個bare repository。&lt;/li&gt;
+&lt;li&gt;要驗證repository是否已設置用於組共享，請在有問題的git存儲庫中執行&lt;code&gt;git config -l&lt;/code&gt;，若沒看到 “core.sharedrepository”表示為非共享，轉換方式&lt;code&gt;git config core.sharedRepository group&lt;/code&gt;(不用替換字)，再輸入&lt;code&gt;git config -l&lt;/code&gt;確認是否更改，另外也可在config中看到sharedrepository = 2&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/git/">git</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/linux/">linux</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>實作筆記</title>
+                <link>https://meerkat0413.github.io/posts/%E5%AF%A6%E4%BD%9C%E7%AD%86%E8%A8%98/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/%E5%AF%A6%E4%BD%9C%E7%AD%86%E8%A8%98/</guid>
+                <pubDate>Fri, 05 Jun 2020 14:44:19 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;h1 id=&#34;實作筆記&#34;&gt;實作筆記&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://note.drx.tw/2008/04/command.html&#34;&gt;linux 解壓縮&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;http://140.96.101.177:8888/c/makefile/#compile-code-with-makefile:2bf0eb474434398a4f8d2f74cf4b959e&#34;&gt;make file 筆記&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://wwssllabcd.github.io/blog/2016/10/03/how-to-write-make-file/&#34;&gt;https://wwssllabcd.github.io/blog/2016/10/03/how-to-write-make-file/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://banco.pixnet.net/blog/post/21967119&#34;&gt;佔有linux空間查詢&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;du -B M --max-depth=1 | sort -g&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://eslint.org/docs/2.0.0/rules/callback-return&#34;&gt;Enforce Return After Callback&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ssh  without password&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://xenby.com/b/220-%e6%95%99%e5%ad%b8-%e7%94%a2%e7%94%9fssh-key%e4%b8%a6%e4%b8%94%e9%80%8f%e9%81%8ekey%e9%80%b2%e8%a1%8c%e5%85%8d%e5%af%86%e7%a2%bc%e7%99%bb%e5%85%a5&#34;&gt;https://xenby.com/b/220-%e6%95%99%e5%ad%b8-%e7%94%a2%e7%94%9fssh-key%e4%b8%a6%e4%b8%94%e9%80%8f%e9%81%8ekey%e9%80%b2%e8%a1%8c%e5%85%8d%e5%af%86%e7%a2%bc%e7%99%bb%e5%85%a5&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://code.visualstudio.com/docs/remote/troubleshooting&#34;&gt;https://code.visualstudio.com/docs/remote/troubleshooting&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;local generate key&amp;ndash;&amp;gt;pub key copy to remote host &amp;ndash;&amp;gt; chmod dir .ssh to 700 and file authorized_keys to 600(optional chown)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;vscode remote development config
+&lt;img src=&#34;https://i.imgur.com/pE6O8zC.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;#防止timeout，每120秒就向server發送keep-alive封包，超過60次無回應斷線
+ServerAliveInterval 120
+ServerAliveCountMax 60&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://larrylu.blog/vscode-tips-fe3320f9032a&#34;&gt;vscode 寫code好用工具&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/file/d/1hulG9U5oiM5ihwA66qyQca2XQq-CB_Q7/view?usp=sharing&#34;&gt;tmux setting&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;shell: &lt;code&gt;tmux source-file ~/.tmux.conf&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.geekyboy.com/archives/629&#34;&gt;Saving a read-only file edited in vi / vim&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&#34;https://blog.niclin.tw/2018/08/19/%E5%B7%A5%E7%A8%8B%E5%B8%AB%E6%87%89%E8%A9%B2%E7%9F%A5%E9%81%93%E7%9A%84-c10k-%E5%95%8F%E9%A1%8C/&#34;&gt;https://blog.niclin.tw/2018/08/19/%E5%B7%A5%E7%A8%8B%E5%B8%AB%E6%87%89%E8%A9%B2%E7%9F%A5%E9%81%93%E7%9A%84-c10k-%E5%95%8F%E9%A1%8C/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;ftp server install &amp;ndash;&amp;gt;https://hackmd.io/@uNmR8bp1S62yvV_R6zJQng/SycNmIWG8&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;若無法裝wireshark，可用tcpdump 抓封包，並存成file，再由wireshark打開
+&lt;code&gt;tcpdump -i eth0 -w test.pcap&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更改route
+&lt;code&gt;sudo route del -net 0.0.0.0 gw 192.168.178.1 netmask 0.0.0.0 dev eth0&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;lib version
+&lt;code&gt;dpkg -l | grep libxxx&lt;/code&gt;
+&lt;img src=&#34;https://i.imgur.com/oJHz65Y.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;比bash好看的shell&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre&gt;&lt;code&gt;Ubuntu 安裝 zsh：
+前置準備，需要先安裝下列的套件：
+sudo apt-get install wget curl git
+
+Installing Zsh:
+sudo apt install zsh
+
+修改預設的 shell 為 zsh:
+chsh -s $(which zsh)
+
+檢查目前使用中的 shell:
+echo $SHELL
+
+Install Oh-my-Zsh:
+sh -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;tags-linux-ftp-tcpdump-tmux-vscode-note-javascript-make-file&#34;&gt;tags: &lt;code&gt;linux&lt;/code&gt; &lt;code&gt;ftp&lt;/code&gt; &lt;code&gt;tcpdump&lt;/code&gt; &lt;code&gt;tmux&lt;/code&gt; &lt;code&gt;vscode note&lt;/code&gt; &lt;code&gt;javascript&lt;/code&gt; &lt;code&gt;make file&lt;/code&gt;&lt;/h6&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/linux/">linux</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/ftp/">ftp</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/tcpdump/">tcpdump</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/tmux/">tmux</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/vscode/">vscode</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/javascript/">javascript</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/makefile/">Makefile</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>mysql note</title>
+                <link>https://meerkat0413.github.io/posts/mysql_note/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/mysql_note/</guid>
+                <pubDate>Fri, 05 Jun 2020 14:42:19 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;h1 id=&#34;mysql-存取&#34;&gt;mysql 存取&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;搜尋某欄位所有的唯一值
+&lt;code&gt;SELECT DISTINCT mycolumn FROM mytable&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;總計(sum、count、average)搜尋結果
+&lt;code&gt;SELECT SUM(mycolumn) FROM mytable&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;秀出所有欄位資訊
+&lt;code&gt;SHOW COLUMNS FROM my_table;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;搜尋特定時間欄位
+&lt;code&gt;SELECT * FROM events WHERE event_date BETWEEN date_sub(now(), interval 1 week) AND date_add(now(), interval 3 day);&lt;/code&gt;
+&lt;a href=&#34;https://popsql.com/learn-sql/mysql/how-to-query-date-and-time-in-mysql/&#34;&gt;https://popsql.com/learn-sql/mysql/how-to-query-date-and-time-in-mysql/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;複製db&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;mysqldump -u root -p source_db &amp;gt; d:\db\source_db.sql&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mysql -u root -p destination_db &amp;lt; d:\db\source_db.sql&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;連線數量查詢(default 100)
+&lt;code&gt;mysql&amp;gt; show variables like &#39;max_connections&#39;;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;tags-linux-mysql&#34;&gt;tags: &lt;code&gt;linux&lt;/code&gt; &lt;code&gt;mysql&lt;/code&gt;&lt;/h6&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/mysql/">mysql</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/linux/">linux</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>程式編譯流程</title>
+                <link>https://meerkat0413.github.io/posts/%E7%A8%8B%E5%BC%8F%E7%B7%A8%E8%AD%AF%E6%B5%81%E7%A8%8B/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/%E7%A8%8B%E5%BC%8F%E7%B7%A8%E8%AD%AF%E6%B5%81%E7%A8%8B/</guid>
+                <pubDate>Fri, 05 Jun 2020 14:41:19 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/CV7USyD.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;source code
+&lt;img src=&#34;https://i.imgur.com/MpluADQ.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;li&gt;preprocess
+&lt;code&gt;gcc -o pre.c -E test.c&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;原始碼(已處理) ex:pre.c
+&lt;img src=&#34;https://i.imgur.com/uB9Otr4.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;li&gt;compiler
+&lt;code&gt;gcc -o test.s -S pre.c&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;組合語言 ex:test.s
+&lt;img src=&#34;https://i.imgur.com/QclmlK1.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;li&gt;assembler
+&lt;code&gt;gcc -o test.o -c test.s&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;machine code ex:test.o
+&lt;img src=&#34;https://i.imgur.com/tysC2Jx.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;li&gt;linker
+&lt;code&gt;gcc -o test test.o&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;執行檔 test
+&lt;img src=&#34;https://i.imgur.com/6kLookg.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/MBYio0m.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h6 id=&#34;tags-linux-cc-compiler&#34;&gt;tags: &lt;code&gt;linux&lt;/code&gt; &lt;code&gt;C/C++&lt;/code&gt; &lt;code&gt;compiler&lt;/code&gt;&lt;/h6&gt;
+&lt;p&gt;`&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/linux/">linux</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/c/c-/">C/C&#43;&#43;</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Generating statistics from Git repository</title>
+                <link>https://meerkat0413.github.io/posts/generating_statistics_from_git_repository/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/generating_statistics_from_git_repository/</guid>
+                <pubDate>Fri, 05 Jun 2020 14:40:19 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;h2 id=&#34;gitstats&#34;&gt;GitStats&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;sudo apt-get install gitstats&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gitstats [git control dir] [output dir] ex:gitstats repo gen&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;python -m SimpleHTTPServer 8080&lt;/code&gt; or 至 [output dir]中打開 index.html&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;結果如下:
+&lt;img src=&#34;https://i.imgur.com/VDruJDA.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;gitinspector&#34;&gt;gitinspector&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;npm i -g gitinspector&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;至project下輸入
+&lt;code&gt;gitinspector --format=html --timeline --localize-output -w .&amp;gt; gitresult.html&lt;/code&gt;
+&lt;img src=&#34;https://i.imgur.com/p5iw6In.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h6 id=&#34;tags-git&#34;&gt;tags: &lt;code&gt;git&lt;/code&gt;&lt;/h6&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/git/">git</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Wireshark note</title>
+                <link>https://meerkat0413.github.io/posts/wireshark_note/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/wireshark_note/</guid>
+                <pubDate>Fri, 05 Jun 2020 14:34:36 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;h2 id=&#34;q1ssl封包看不到&#34;&gt;Q1:ssl封包看不到&lt;/h2&gt;
+&lt;p&gt;Answer:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Edit &amp;gt; Preferences &amp;gt; Protocols &amp;gt; TCP &amp;gt; Analyze TCP sequence numbers&lt;/li&gt;
+&lt;li&gt;Edit &amp;gt; Preferences &amp;gt; Protocols &amp;gt; HTTP &amp;gt; SSL/TLS Ports:[ex:5000]&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;tags-wireshark&#34;&gt;tags: &lt;code&gt;wireshark&lt;/code&gt;&lt;/h6&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/wireshark/">wireshark</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>vagrant 筆記</title>
@@ -36,8 +569,7 @@
                 
                 
                 
-                    <description>&lt;h1 id=&#34;vagrant-筆記&#34;&gt;vagrant 筆記&lt;/h1&gt;
-&lt;h2 id=&#34;permission-denied-publickey-because-of-sync&#34;&gt;Permission denied (publickey) because of sync&lt;/h2&gt;
+                    <description>&lt;h2 id=&#34;permission-denied-publickey-because-of-sync&#34;&gt;Permission denied (publickey) because of sync&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;由於synced_folder錯誤，導致無法正常登入&lt;/li&gt;
 &lt;/ul&gt;
