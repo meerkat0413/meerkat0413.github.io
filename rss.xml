@@ -21,7 +21,7 @@
             <webMaster>z719041@gmail.com (meerkat)</webMaster>
         
         
-        <lastBuildDate>Fri, 17 Jul 2020 11:19:24 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 17 Jul 2020 11:37:23 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://meerkat0413.github.io/rss.xml" />
         
@@ -60,6 +60,7 @@
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;git-merge&#34;&gt;git merge&lt;/h2&gt;
+&lt;h3 id=&#34;one-version&#34;&gt;one version&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;git add xxxxx&lt;/li&gt;
 &lt;li&gt;git commit -m &amp;ldquo;&amp;hellip;&amp;rdquo; [branch1]&lt;/li&gt;
@@ -69,8 +70,10 @@
 &lt;li&gt;git commit -am &amp;ldquo;fix conflict&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;git checkout dev&lt;/li&gt;
 &lt;li&gt;git merge [branch1]&lt;/li&gt;
-&lt;li&gt;git -d [branch1]
-*&lt;/li&gt;
+&lt;li&gt;git -d [branch1]&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;another-version&#34;&gt;another version&lt;/h3&gt;
+&lt;ol&gt;
 &lt;li&gt;git checkout branch “issue”&lt;/li&gt;
 &lt;li&gt;git commit&lt;/li&gt;
 &lt;li&gt;git checkout master&lt;/li&gt;
