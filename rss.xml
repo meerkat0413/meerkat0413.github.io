@@ -21,7 +21,7 @@
             <webMaster>z719041@gmail.com (meerkat)</webMaster>
         
         
-        <lastBuildDate>Fri, 05 Jun 2020 15:52:19 &#43;0800</lastBuildDate>
+        <lastBuildDate>Fri, 17 Jul 2020 11:19:24 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://meerkat0413.github.io/rss.xml" />
         
@@ -69,7 +69,13 @@
 &lt;li&gt;git commit -am &amp;ldquo;fix conflict&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;git checkout dev&lt;/li&gt;
 &lt;li&gt;git merge [branch1]&lt;/li&gt;
-&lt;li&gt;git -d [branch1]&lt;/li&gt;
+&lt;li&gt;git -d [branch1]
+*&lt;/li&gt;
+&lt;li&gt;git checkout branch “issue”&lt;/li&gt;
+&lt;li&gt;git commit&lt;/li&gt;
+&lt;li&gt;git checkout master&lt;/li&gt;
+&lt;li&gt;git pull origin master&lt;/li&gt;
+&lt;li&gt;git merge issue&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;git-pull-remote-branch&#34;&gt;git pull remote branch&lt;/h2&gt;
@@ -107,6 +113,10 @@ chmod -R g+rws objects
 &lt;li&gt;在這種情況下，未將git存儲庫（例如：myproj）設置為組的共享repositor，它可能只是一個bare repository。&lt;/li&gt;
 &lt;li&gt;要驗證repository是否已設置用於組共享，請在有問題的git存儲庫中執行&lt;code&gt;git config -l&lt;/code&gt;，若沒看到 “core.sharedrepository”表示為非共享，轉換方式&lt;code&gt;git config core.sharedRepository group&lt;/code&gt;(不用替換字)，再輸入&lt;code&gt;git config -l&lt;/code&gt;確認是否更改，另外也可在config中看到sharedrepository = 2&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;常見問題&#34;&gt;常見問題&lt;/h2&gt;
+&lt;h3 id=&#34;修改commit後的作者資訊未push前&#34;&gt;修改commit後的作者資訊(未push前)&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;git commit --amend --author=&amp;quot;usrname &amp;lt;email&amp;gt;&amp;quot; --no-edit&lt;/code&gt;&lt;/p&gt;
 </description>
                 
                 

@@ -4,7 +4,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
     <title type="text">Meerkat&#39;s Note</title>
     <subtitle type="html">MemE is a powerful and highly customizable GoHugo theme for personal blogs.</subtitle>
-    <updated>2020-06-05T15:52:19&#43;08:00</updated>
+    <updated>2020-07-17T11:19:24&#43;08:00</updated>
     <id>https://meerkat0413.github.io/</id>
     <link rel="alternate" type="text/html" href="https://meerkat0413.github.io/" />
     <link rel="self" type="application/atom&#43;xml" href="https://meerkat0413.github.io/atom.xml" />
@@ -20,7 +20,7 @@
             <title type="text">git note</title>
             <link rel="alternate" type="text/html" href="https://meerkat0413.github.io/posts/git_note/" />
             <id>https://meerkat0413.github.io/posts/git_note/</id>
-            <updated>2020-06-05T15:51:36&#43;08:00</updated>
+            <updated>2020-07-17T11:19:10&#43;08:00</updated>
             <published>2020-06-05T15:01:19&#43;08:00</published>
             <author>
                     <name>meerkat</name>
@@ -62,7 +62,13 @@
 &lt;li&gt;git commit -am &amp;ldquo;fix conflict&amp;rdquo;&lt;/li&gt;
 &lt;li&gt;git checkout dev&lt;/li&gt;
 &lt;li&gt;git merge [branch1]&lt;/li&gt;
-&lt;li&gt;git -d [branch1]&lt;/li&gt;
+&lt;li&gt;git -d [branch1]
+*&lt;/li&gt;
+&lt;li&gt;git checkout branch “issue”&lt;/li&gt;
+&lt;li&gt;git commit&lt;/li&gt;
+&lt;li&gt;git checkout master&lt;/li&gt;
+&lt;li&gt;git pull origin master&lt;/li&gt;
+&lt;li&gt;git merge issue&lt;/li&gt;
 &lt;/ol&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;git-pull-remote-branch&#34;&gt;git pull remote branch&lt;/h2&gt;
@@ -100,6 +106,10 @@ chmod -R g+rws objects
 &lt;li&gt;在這種情況下，未將git存儲庫（例如：myproj）設置為組的共享repositor，它可能只是一個bare repository。&lt;/li&gt;
 &lt;li&gt;要驗證repository是否已設置用於組共享，請在有問題的git存儲庫中執行&lt;code&gt;git config -l&lt;/code&gt;，若沒看到 “core.sharedrepository”表示為非共享，轉換方式&lt;code&gt;git config core.sharedRepository group&lt;/code&gt;(不用替換字)，再輸入&lt;code&gt;git config -l&lt;/code&gt;確認是否更改，另外也可在config中看到sharedrepository = 2&lt;/li&gt;
 &lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;常見問題&#34;&gt;常見問題&lt;/h2&gt;
+&lt;h3 id=&#34;修改commit後的作者資訊未push前&#34;&gt;修改commit後的作者資訊(未push前)&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;git commit --amend --author=&amp;quot;usrname &amp;lt;email&amp;gt;&amp;quot; --no-edit&lt;/code&gt;&lt;/p&gt;
 </content>
             
             
@@ -529,7 +539,7 @@ sh -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-m
             <title type="text">Wireshark note</title>
             <link rel="alternate" type="text/html" href="https://meerkat0413.github.io/posts/wireshark_note/" />
             <id>https://meerkat0413.github.io/posts/wireshark_note/</id>
-            <updated>2020-06-05T14:39:20&#43;08:00</updated>
+            <updated>2020-07-17T10:42:44&#43;08:00</updated>
             <published>2020-06-05T14:34:36&#43;08:00</published>
             <author>
                     <name>meerkat</name>
