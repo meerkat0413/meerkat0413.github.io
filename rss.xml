@@ -21,10 +21,682 @@
             <webMaster>z719041@gmail.com (meerkat)</webMaster>
         
         
-        <lastBuildDate>Fri, 17 Jul 2020 11:37:23 &#43;0800</lastBuildDate>
+        <lastBuildDate>Tue, 03 Nov 2020 13:50:31 &#43;0800</lastBuildDate>
         
             <atom:link rel="self" type="application/rss&#43;xml" href="https://meerkat0413.github.io/rss.xml" />
         
+        
+            <item>
+                <title>Os_note</title>
+                <link>https://meerkat0413.github.io/posts/os_note/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/os_note/</guid>
+                <pubDate>Tue, 20 Oct 2020 14:12:12 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;h1 id=&#34;chapter-0historical-prospective&#34;&gt;chapter 0:historical prospective&lt;/h1&gt;
+&lt;h2 id=&#34;mainframe-system&#34;&gt;mainframe system&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;slow I/O device:card reader/printer&lt;/li&gt;
+&lt;li&gt;evolution
+&lt;ul&gt;
+&lt;li&gt;batch → multi-programming → time-shared&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;batch drawback
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;one jot at a time&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;no interaction&lt;/strong&gt; between users and jobs&lt;/li&gt;
+&lt;li&gt;CPU is &lt;strong&gt;often idle&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;I/O speed &amp;laquo; CPU speed(at least 1:1000)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;multi-programming system &lt;code&gt;以系統為角度&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;overlap the I/O and computation of jobs&lt;/li&gt;
+&lt;li&gt;spooling(simultaneous peripheral operation on-line)
+&lt;ul&gt;
+&lt;li&gt;I/O is done with no CPU intervention&lt;/li&gt;
+&lt;li&gt;CPU just needs to be notified when I/O is done&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;time-sharing system(multi-tasking system)  &lt;code&gt;以人為角度&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;an &lt;strong&gt;interactive&lt;/strong&gt; system provide direct communication bewteen the users and system&lt;/li&gt;
+&lt;li&gt;multiple &lt;strong&gt;users&lt;/strong&gt; can share thecomputer simultaneouly&lt;/li&gt;
+&lt;li&gt;switch job when
+&lt;ul&gt;
+&lt;li&gt;finish&lt;/li&gt;
+&lt;li&gt;wait I/O&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;a short peroid of time&lt;/strong&gt;
+&lt;img src=&#34;https://i.imgur.com/l6j8YG1.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;computer-system-architecture&#34;&gt;computer system architecture&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;parallel systems
+&lt;ul&gt;
+&lt;li&gt;symmetic multiprocessor system (SMP)
+&lt;ul&gt;
+&lt;li&gt;each processor runs the same OS&lt;/li&gt;
+&lt;li&gt;most popular multiple-processor architecture&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Asymmetric multiporcessor system
+&lt;ul&gt;
+&lt;li&gt;each porcessor is assigned a spectific task&lt;/li&gt;
+&lt;li&gt;more common in extremly large systems&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;multi core processor 單一的processor
+&lt;ul&gt;
+&lt;li&gt;A CPU with &lt;strong&gt;multiple cores on the same die&lt;/strong&gt;(chip)
+&lt;img src=&#34;https://i.imgur.com/fjmUfKL.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;many-core processor &lt;code&gt;可以到百個core&lt;/code&gt; 單一的processor
+&lt;ul&gt;
+&lt;li&gt;GPU
+&lt;ul&gt;
+&lt;li&gt;single instruction multiple data 同時間只能做一個指令&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;special-purpose systems
+&lt;ul&gt;
+&lt;li&gt;real-time operating system
+&lt;ul&gt;
+&lt;li&gt;real time doesn&amp;rsquo;t mean speed but &lt;strong&gt;keeping deadlines&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;real-time requirement :&lt;strong&gt;hard&lt;/strong&gt; or &lt;strong&gt;soft&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;soft real-time requirements 盡量完成、達到使用者的滿意度&lt;/li&gt;
+&lt;li&gt;hard real-time requirements 無hard disk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-1introduction&#34;&gt;chapter 1:introduction&lt;/h1&gt;
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/7qslw65.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;controls and coordinates the use of the hardware/resources&lt;/li&gt;
+&lt;li&gt;is the &amp;ldquo;permanent&amp;rdquo; software that control/abstracts hardware resources for user applications&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;interrupt&#34;&gt;interrupt&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;modern OS are interrupt driven(event driven)&lt;/li&gt;
+&lt;li&gt;the ocurrence of an event is signaled by an interrupt from either hardware and software
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;hardware&lt;/strong&gt; may trigger an interrupt at any time by sending a &lt;strong&gt;signal&lt;/strong&gt; to CPU 被動、可以被handle的signal是固定的數量(已燒好)
+&lt;img src=&#34;https://i.imgur.com/wU3XnVA.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;software&lt;/strong&gt; may trigger an interrupt either by an error(ex:segment fault) or by user request for an operating system &lt;strong&gt;service(sytem call)&lt;/strong&gt; ,also called &lt;strong&gt;trap&lt;/strong&gt; 主動、可有多個systemcall
+&lt;img src=&#34;https://i.imgur.com/GFIjxG0.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;storage-device-hierarchy&#34;&gt;storage-device hierarchy&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;main mermory&lt;/strong&gt;-only large storage media that CPU can access directly
+&lt;ul&gt;
+&lt;li&gt;RAM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;secondary storage-extension of main memory that provides &lt;strong&gt;large nonvolatile storage(斷電資料不會消失)&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;magnetic disk&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;caching
+&lt;ul&gt;
+&lt;li&gt;information in use copied form slower to faster storage temporarily&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;hardware-protection&#34;&gt;hardware protection&lt;/h2&gt;
+&lt;h3 id=&#34;dual-mode-operation&#34;&gt;dual-mode operation&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;sharing system resources requires OS to ensure that an incorrect program cannot cause &lt;strong&gt;other programs&lt;/strong&gt; to execute incorrectly&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;user mode&lt;/strong&gt;-execution done on behalf of user&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;monitor mode&lt;/strong&gt;(also kernel mode or system mode)-execution done on behalf of operation system&lt;/li&gt;
+&lt;/ol&gt;
+&lt;ul&gt;
+&lt;li&gt;mode bit added to computer hardware to indicate the current mode:kernel(0) or user(1)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;privileged instructions&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;executed only in &lt;strong&gt;monitor mode&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;requested by users(system call)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;io-protection&#34;&gt;I/O protection&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;all I/O instructions are priviledged instructions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;memory-protection&#34;&gt;memory protection&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;protect
+&lt;ul&gt;
+&lt;li&gt;interrupt vector and the interrupt service routines&lt;/li&gt;
+&lt;li&gt;data access and over-write from other programs&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;cpu-protection&#34;&gt;CPU protection&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;prevent user program from not returning control
+&lt;ul&gt;
+&lt;li&gt;getting stuck in an infinite loop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;HW support:&lt;strong&gt;timer&lt;/strong&gt;-interrupts computer after specified period&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-2os&#34;&gt;chapter 2:OS&lt;/h1&gt;
+&lt;h2 id=&#34;os-structure---os-services&#34;&gt;OS Structure - OS Services&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;user interface
+&lt;ul&gt;
+&lt;li&gt;CLI
+&lt;ul&gt;
+&lt;li&gt;shell:command-line interpreter(CSHELL,BASH)
+&lt;ul&gt;
+&lt;li&gt;adjusted according to user behavior and preference&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;GUI&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;communication
+&lt;ul&gt;
+&lt;li&gt;communication may take place using either &lt;strong&gt;message passing&lt;/strong&gt;(memory copy need system call to copy) or &lt;strong&gt;shared memory&lt;/strong&gt;(need system call to create memory)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;os-application-interface&#34;&gt;OS Application Interface&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;system calls
+&lt;ul&gt;
+&lt;li&gt;request OS services&lt;/li&gt;
+&lt;li&gt;an explicit request to the kernel made via a &lt;strong&gt;software interrupt&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;gernerally available as &lt;strong&gt;assembly-language&lt;/strong&gt; instructions&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;API 透過API去呼叫system call
+&lt;ul&gt;
+&lt;li&gt;user mostly program against API instead of system call&lt;/li&gt;
+&lt;li&gt;commonly implemented by language libraries,ex:C library&lt;/li&gt;
+&lt;li&gt;an API could involve &lt;strong&gt;zero or multiple system call&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;both malloc() and free() use system brk()&lt;/li&gt;
+&lt;li&gt;math API functions,such as abs(),don&amp;rsquo;t need to involve system call&lt;/li&gt;
+&lt;li&gt;the most common API
+&lt;ul&gt;
+&lt;li&gt;POSIX API for POSIX-based systems(include virtually all versions of UNIX,Linux,and Mac OS X)
+&lt;img src=&#34;https://i.imgur.com/Y6j51UN.png&#34; alt=&#34;&#34;&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;os-structure&#34;&gt;OS structure&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;layer OS&lt;/li&gt;
+&lt;li&gt;Microkernel OS kernel變很小，因此有很多module(容易替換)跑在user space，kernel只要負責module之間的溝通，但因為多了許多msg copy速度變很慢&lt;/li&gt;
+&lt;li&gt;Modular OS 將module化的放在kernel space較有效率&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-3processed-concept&#34;&gt;chapter 3:Processed Concept&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;active entity:a program in execution in memory&lt;/li&gt;
+&lt;li&gt;a process include:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;code&lt;/strong&gt; segment&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;data section&lt;/strong&gt;-global variables&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;stack&lt;/strong&gt;-temporary local variables and functions&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;heap&lt;/strong&gt;-dymabic allocated variables or classes&lt;/li&gt;
+&lt;li&gt;current activity(&lt;strong&gt;program counter&lt;/strong&gt;,register contents)&lt;/li&gt;
+&lt;li&gt;a set of associated &lt;strong&gt;resources&lt;/strong&gt;(ex:open file handlers)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-4multithreaded-progrmming&#34;&gt;chapter 4:Multithreaded Progrmming&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-5porcess-scheduling&#34;&gt;chapter 5:Porcess Scheduling&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-6process-synchronization&#34;&gt;chapter 6:Process Synchronization&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-7deadlocks&#34;&gt;chapter 7:Deadlocks&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-8memory-management&#34;&gt;chapter 8:Memory Management&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-9virtual-memory-menagement&#34;&gt;chapter 9:Virtual Memory Menagement&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-10file-system-interface&#34;&gt;chapter 10:File System Interface&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-11file-system-implementation&#34;&gt;chapter 11:File System Implementation&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-12mass-storage-system&#34;&gt;chapter 12:Mass Storage System&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id=&#34;chapter-13io-systems&#34;&gt;chapter 13:I/O Systems&lt;/h1&gt;
+&lt;h6 id=&#34;referenece-httpocwnthuedutwocwindexphppagecoursecid141&#34;&gt;referenece &lt;a href=&#34;http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;amp;cid=141&amp;amp;&#34;&gt;http://ocw.nthu.edu.tw/ocw/index.php?page=course&amp;amp;cid=141&amp;amp;&lt;/a&gt;&lt;/h6&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/os/">os</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Web_note</title>
+                <link>https://meerkat0413.github.io/posts/web_note/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/web_note/</guid>
+                <pubDate>Fri, 11 Sep 2020 15:49:02 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;ul&gt;
+&lt;li&gt;font: google font ,img: unsplash,icon: font awesome icon&lt;/li&gt;
+&lt;li&gt;sass :可以用變數的方式寫css，易管理CSS&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                    
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>socket</title>
+                <link>https://meerkat0413.github.io/posts/socket/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/socket/</guid>
+                <pubDate>Tue, 25 Aug 2020 10:35:32 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;h2 id=&#34;unix-damain-socket說明&#34;&gt;UNIX damain socket說明&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;可讓同一台主機上的行程互相通信，允許在行程間傳輸案描述符，讓process 可以開啟檔案，使原先無法存取該檔案的process可以用&lt;/li&gt;
+&lt;li&gt;有stream 與 datagram socket 的用法，由於 UNIX domain socket 的datagram傳送是在核心內部進行，因此是可靠的，全部的訊息都會依序傳遞，而且不會重覆，使用datagram socket 通信不可靠清況是透過網路傳輸datagram的情況(UDP)&lt;/li&gt;
+&lt;li&gt;不需透過網路protocol&lt;/li&gt;
+&lt;li&gt;類似於TCP和UDP&lt;/li&gt;
+&lt;li&gt;例子: X window伺服器和GUI程式之間的通訊&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;internet-domain-socket&#34;&gt;Internet domain socket&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;可讓不同主機的應用程式透過TCP/IP網路進行通信，datagram socket採用UDP(User Datagram Protocol)，而stream socket通常使用TCP(Transmission Control Protocol)&lt;/li&gt;
+&lt;li&gt;也可以用於同一台主機的通訊&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;socket-domain-用法&#34;&gt;socket domain 用法&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;Domain&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;通信方式&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;應用程式間的通信&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;位址格式&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;位址結構&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;AF_UNIX&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;在核心內&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;在同一台主機&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;路徑名稱&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;sockaddr_un&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;AF_INET&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;透過IPv4&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;透過IPv4網路相連的主機&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;32位元IPv4位址與16位元的port number&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;sockaddr_in&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;AF_INET6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;透過IPv6&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;透過IPv6網路相連的主機&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;128位元IPv6位址與16位元的port number&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;sockaddr_in6&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;AF_UNSPEC&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;允許IPv4、IPv6&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h3 id=&#34;pf_inet-vs-af_inet&#34;&gt;PF_INET vs AF_INET&lt;/h3&gt;
+&lt;p&gt;RCP/IP起初設計時，認為不同的protocol會有多個不同的address形式，所以有了PF(protocol family)和AF(address family)，建立socket用pf而bind/connect則用af，但一個PF只有一個AF因此就混用&lt;/p&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/linux/">linux</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/socket/">socket</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/ipc/">IPC</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>Pointer</title>
+                <link>https://meerkat0413.github.io/posts/pointer/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/pointer/</guid>
+                <pubDate>Tue, 11 Aug 2020 16:17:43 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/eEHBRk0.png&#34; alt=&#34;&#34;&gt;)&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;main&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt; 
+&lt;span class=&#34;p&#34;&gt;{&lt;/span&gt; 
+    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;123&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+  
+    &lt;span class=&#34;c1&#34;&gt;// pointer for var 
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ptr1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+  
+    &lt;span class=&#34;c1&#34;&gt;// double pointer for ptr2 
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ptr2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+  
+    &lt;span class=&#34;c1&#34;&gt;// storing address of var in ptr2 
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ptr1&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;var&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+      
+    &lt;span class=&#34;c1&#34;&gt;// Storing address of ptr1 in ptr2
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;ptr2&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ptr1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+      
+    &lt;span class=&#34;c1&#34;&gt;// Displaying value of var using 
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;c1&#34;&gt;// both single and double pointers 
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Value of var = %d&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;var&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; 
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Value of var using single pointer = %d&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;*&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ptr1&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; 
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Value of var using double pointer = %d&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;**&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ptr2&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; 
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Address of var = %p&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;var&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; 
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;value of ptr1 = %p&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ptr1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; 
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;Address of ptr1 = %p&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;ptr1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt; 
+    &lt;span class=&#34;n&#34;&gt;printf&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;value of ptr1 = %p&lt;/span&gt;&lt;span class=&#34;se&#34;&gt;\n&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;ptr1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+  &lt;span class=&#34;k&#34;&gt;return&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;0&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;;&lt;/span&gt; 
+&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;output:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;Value of var = 5
+Value of var using single pointer = 5
+Value of var using double pointer = 5
+Address of var = 0x7fff19c18564
+value of ptr1 = 0x7fff19c18564
+Address of ptr1 = 0x7fff19c18568
+value of ptr2 = 0x7fff19c18568
+Address of ptr2 = 0x7fff19c18570
+value of *ptr2 = 0x7fff19c18564
+value of **ptr2 = 5
+value of *ptr1 = 5
+&lt;/code&gt;&lt;/pre&gt;</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/c/">c</category>
+                                
+                            
+                        
+                    
+                
+            </item>
+        
+            <item>
+                <title>File_locking</title>
+                <link>https://meerkat0413.github.io/posts/file_locking/</link>
+                <guid isPermaLink="true">https://meerkat0413.github.io/posts/file_locking/</guid>
+                <pubDate>Tue, 11 Aug 2020 10:20:03 &#43;0800</pubDate>
+                
+                    <author>z719041@gmail.com (meerkat)</author>
+                
+                
+                
+                    <description>&lt;h2 id=&#34;使用flock將整個檔案上鎖&#34;&gt;使用flock()將整個檔案上鎖&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;只能對整個檔案上鎖&lt;/li&gt;
+&lt;li&gt;只能產生勸告鎖(access 文件前，先檢查鎖，此時鎖才發揮作用，若硬要讀寫，則勸告鎖無作用)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span class=&#34;cp&#34;&gt;#include&lt;/span&gt; &lt;span class=&#34;cpf&#34;&gt;&amp;lt;sys/file.h&amp;gt;&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;
+&lt;/span&gt;&lt;span class=&#34;cp&#34;&gt;&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;open&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;file&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;);&lt;/span&gt;
+&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;flock&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;fd&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;operation&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;kt&#34;&gt;int&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;mode&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;//operation:LOCK_SH、
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                                         &lt;span class=&#34;c1&#34;&gt;//LOCK_EX、
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                                         &lt;span class=&#34;c1&#34;&gt;//LOCK_UN、
+&lt;/span&gt;&lt;span class=&#34;c1&#34;&gt;&lt;/span&gt;                                         &lt;span class=&#34;c1&#34;&gt;//LOCK_NB(enum)
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;參數
+&lt;ul&gt;
+&lt;li&gt;LOCK_SH:多個process可持有&lt;/li&gt;
+&lt;li&gt;LOCK_EX:只有一個process可持有&lt;/li&gt;
+&lt;li&gt;LOCK_NB:非阻塞式的上鎖請求(預設為blocking)&lt;/li&gt;
+&lt;li&gt;LOCK_UN:解鎖&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;相容性&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;center&#34;&gt;process&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;LOCK_SH(B)&lt;/th&gt;
+&lt;th align=&#34;center&#34;&gt;LOCK_EX(B)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;LOCK_SH(A)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;yes&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align=&#34;center&#34;&gt;LOCK_EX(A)&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;no&lt;/td&gt;
+&lt;td align=&#34;center&#34;&gt;no&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;ul&gt;
+&lt;li&gt;check lock
+&lt;code&gt;cat /proc/locks&lt;/code&gt;
+&lt;ul&gt;
+&lt;li&gt;FLOCK為flock()建立的鎖，POSIX是fcntl()建立的鎖&lt;/li&gt;
+&lt;li&gt;鎖分為ADVISORY和MANDATORY&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+                
+                
+                
+                
+                
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/categories/note/">note</category>
+                                
+                            
+                        
+                    
+                        
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/linux/">linux</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/mutex/">mutex</category>
+                                
+                            
+                                
+                                
+                                
+                                    <category domain="https://meerkat0413.github.io/tags/filelock/">filelock</category>
+                                
+                            
+                        
+                    
+                
+            </item>
         
             <item>
                 <title>git note</title>
@@ -253,7 +925,91 @@ echo $SHELL
 
 Install Oh-my-Zsh:
 sh -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;h6 id=&#34;tags-linux-ftp-tcpdump-tmux-vscode-note-javascript-make-file&#34;&gt;tags: &lt;code&gt;linux&lt;/code&gt; &lt;code&gt;ftp&lt;/code&gt; &lt;code&gt;tcpdump&lt;/code&gt; &lt;code&gt;tmux&lt;/code&gt; &lt;code&gt;vscode note&lt;/code&gt; &lt;code&gt;javascript&lt;/code&gt; &lt;code&gt;make file&lt;/code&gt;&lt;/h6&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
+&lt;li&gt;auto build tools
+python watchdog.observable 監看檔案狀態，若未加sleep執行檔無執行權限，使用方式:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;ol&gt;
+&lt;li&gt;建資料夾，新增auto_build.py檔&lt;/li&gt;
+&lt;li&gt;複製以下文字至auto_build.py&lt;/li&gt;
+&lt;li&gt;install watchdog:&lt;code&gt;pip install watchdog&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;執行 &lt;code&gt;python auto_build.py&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;若監看的file有更動，會執行os.system中的動作&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;31
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;time&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;watchdog.observers&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Observer&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;from&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;watchdog.events&lt;/span&gt; &lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;FileSystemEventHandler&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;os&lt;/span&gt;
+&lt;span class=&#34;kn&#34;&gt;import&lt;/span&gt; &lt;span class=&#34;nn&#34;&gt;sys&lt;/span&gt;
+
+&lt;span class=&#34;n&#34;&gt;pattern&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;.h&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;.c&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt;
+
+
+&lt;span class=&#34;k&#34;&gt;class&lt;/span&gt; &lt;span class=&#34;nc&#34;&gt;Handler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;FileSystemEventHandler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;def&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;on_modified&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;self&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;for&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;p&lt;/span&gt; &lt;span class=&#34;ow&#34;&gt;in&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;pattern&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;event&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;src_path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;endswith&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;p&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;):&lt;/span&gt;
+                &lt;span class=&#34;n&#34;&gt;os&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;system&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s2&#34;&gt;&amp;#34;cd ../;make clean &amp;amp;&amp;amp; make &amp;amp;&amp;amp; cd build/x86-64-debug; sleep 1 &amp;amp;&amp;amp; ./group&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#fix here&lt;/span&gt;
+
+&lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;vm&#34;&gt;__name__&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s2&#34;&gt;&amp;#34;__main__&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;[&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;if&lt;/span&gt; &lt;span class=&#34;nb&#34;&gt;len&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sys&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;argv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;k&#34;&gt;else&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;../&amp;#39;&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;monitor path: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#fix here&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;print&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;build path: &amp;#39;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;path&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;build/x86-64-debug&amp;#39;&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#fix here&lt;/span&gt;
+
+    &lt;span class=&#34;n&#34;&gt;event_handler&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Handler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;observer&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;Observer&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;observer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;schedule&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;event_handler&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;path&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;recursive&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;=&lt;/span&gt;&lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;observer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;start&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+
+    &lt;span class=&#34;k&#34;&gt;try&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;k&#34;&gt;while&lt;/span&gt; &lt;span class=&#34;bp&#34;&gt;True&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+            &lt;span class=&#34;n&#34;&gt;time&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sleep&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;mi&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+    &lt;span class=&#34;k&#34;&gt;except&lt;/span&gt; &lt;span class=&#34;ne&#34;&gt;KeyboardInterrupt&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt;
+        &lt;span class=&#34;n&#34;&gt;observer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;stop&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+    &lt;span class=&#34;n&#34;&gt;observer&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;join&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;add route
+route add 140.96.0.0 mask 255.255.0.0 10.101.129.13
+route add 10.21.0.0 mask 255.255.0.0 10.101.129.13&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;tags-linux-ftp-tcpdump-tmux-vscode-note-javascript-make-file&#34;&gt;tags: &lt;code&gt;linux&lt;/code&gt; &lt;code&gt;ftp&lt;/code&gt; &lt;code&gt;tcpdump&lt;/code&gt; &lt;code&gt;tmux&lt;/code&gt; &lt;code&gt;vscode note&lt;/code&gt; &lt;code&gt;javascript&lt;/code&gt; &lt;code&gt;make file&lt;/code&gt;&lt;/h6&gt;
 </description>
                 
                 
@@ -359,6 +1115,12 @@ sh -c &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-m
 &lt;li&gt;
 &lt;p&gt;連線數量查詢(default 100)
 &lt;code&gt;mysql&amp;gt; show variables like &#39;max_connections&#39;;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;trace &amp;ldquo;too many connection&amp;rdquo; problem&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;use mytop tool&lt;/li&gt;
+&lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;h6 id=&#34;tags-linux-mysql&#34;&gt;tags: &lt;code&gt;linux&lt;/code&gt; &lt;code&gt;mysql&lt;/code&gt;&lt;/h6&gt;
